@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isles Of Dread: Fighting the monster called destiny</title>
+    
+    
+    <link rel="stylesheet" href="points.css">
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="animation.css">
+
+    <link rel="icon" href="logo.png">
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <audio src="login.mp3" id="music" loop></audio>
+    <div id="battlefield">
+        <img id="bg" src="">
+        <button onclick="BattleStart()" id="fightButton">FIGHT</button>
+        <h2 id="Cname"></h2>
+        <h2 id="CHP"></h2>
+        <img id="protog" src="knight/Knight_1/Protect.png">
+        <img id="enemy" src="">
+        <button onclick="information()" id="infoButton" ></button>
+        <h2 id="enemyHP"></h2>
+
+        <button id="skill1" onclick="skill1()" ></button>
+        <button id="skill2" onclick="skill2()" ></button>
+        <button id="skill3" onclick="skill3()" ></button>
+        
+        <div><img id="skill3CD" src="skill3CD.png"></div>
+        <h2 id="energy"></h2>
+        <div id="dialougeBox"></div>
+        <h2 id="story"></h2>
+        <img id="fight" src="fight.png">
+        <img id="cinematic" src="">
+        <div id="infoTab" onclick="document.getElementById('infoTab').style.display = 'none'; document.getElementById('cinematic').style.display = 'none' "><p id="infoText"></p></div>
+    </div>
+
+    
+    
+    <div id="container" style="width: 1000px;">
+        <div class="choice" id="dialougeBox2"></div>
+        <h2 id="story2"></h2>
+        <img id="splash" src="backgrounds/emptySplash.png">
+        <div id="soundControl" onmouseleave="document.getElementById('volumeChanger').style.display = 'none'">
+            <button onclick="audioContorl()" id="musicButton" onmouseover="document.getElementById('volumeChanger').style.display = 'block'"></button>
+        <input type="range" name="" id="volumeChanger" min="0" max="1" step="0.01" oninput="setVolumeSlider()">
+        </div>
+        <div class="choice" id="yes" onclick="FightTrigger(true)">>>YES<<</div>
+        <div class="choice" id="no" onclick="FightTrigger(false)">>>NO<<</div>
+        <img id="map" src="map.png" width="1000px">
+        
+        <div class="point" id="a0" onclick="MainE(0)" onmouseover="tileText(0)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a1" onclick="MainE(1)" onmouseover="tileText(1)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a2" onclick="MainE(2)" onmouseover="tileText(2)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a3" onclick="MainE(3)" onmouseover="tileText(3)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a4" onclick="MainE(4)" onmouseover="tileText(4)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a5" onclick="MainE(5)" onmouseover="tileText(5)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a6" onclick="MainE(6)" onmouseover="tileText(6)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a7" onclick="MainE(7)" onmouseover="tileText(7)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a8" onclick="MainE(8)" onmouseover="tileText(8)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a9" onclick="MainE(9)" onmouseover="tileText(9)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a10" onclick="MainE(10)" onmouseover="tileText(10)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a11" onclick="MainE(11)" onmouseover="tileText(11)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a12" onclick="MainE(12)" onmouseover="tileText(12)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a13" onclick="MainE(13)" onmouseover="tileText(13)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a14" onclick="MainE(14)" onmouseover="tileText(14)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a15" onclick="MainE(15)" onmouseover="tileText(15)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a16" onclick="MainE(16)" onmouseover="tileText(16)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a17" onclick="MainE(17)" onmouseover="tileText(17)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a18" onclick="MainE(18)" onmouseover="tileText(18)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a19" onclick="MainE(19)" onmouseover="tileText(19)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a20" onclick="MainE(20)" onmouseover="tileText(20)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a21" onclick="MainE(21)" onmouseover="tileText(21)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a22" onclick="MainE(22)" onmouseover="tileText(22)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a23" onclick="MainE(23)" onmouseover="tileText(23)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a24" onclick="MainE(24)" onmouseover="tileText(24)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a25" onclick="MainE(25)" onmouseover="tileText(25)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a26" onclick="MainE(26)" onmouseover="tileText(26)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a27" onclick="MainE(27)" onmouseover="tileText(27)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a28" onclick="MainE(28)" onmouseover="tileText(28)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a29" onclick="MainE(29)" onmouseover="tileText(29)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a30" onclick="MainE(30)" onmouseover="tileText(30)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a32" onclick="MainE(32)" onmouseover="tileText(31)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a31" onclick="MainE(31)" onmouseover="tileText(32)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a33" onclick="MainE(33)" onmouseover="tileText(33)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a34" onclick="MainE(34)" onmouseover="tileText(34)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a35" onclick="MainE(35)" onmouseover="tileText(35)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a36" onclick="MainE(36)" onmouseover="tileText(36)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a37" onclick="MainE(37)" onmouseover="tileText(37)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a38" onclick="MainE(38)" onmouseover="tileText(38)" onmouseleave="NotileText()"></div> 
+        <div class="point" id="a39" onclick="MainE(39)" onmouseover="tileText(39)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a40" onclick="MainE(40)" onmouseover="tileText(40)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a41" onclick="MainE(41)" onmouseover="tileText(41)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a42" onclick="MainE(42)" onmouseover="tileText(42)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a43" onclick="MainE(43)" onmouseover="tileText(43)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a44" onclick="MainE(44)" onmouseover="tileText(44)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a45" onclick="MainE(45)" onmouseover="tileText(45)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a46" onclick="MainE(46)" onmouseover="tileText(46)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a47" onclick="MainE(47)" onmouseover="tileText(47)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a48" onclick="MainE(48)" onmouseover="tileText(48)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a49" onclick="MainE(49)" onmouseover="tileText(49)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a50" onclick="MainE(50)" onmouseover="tileText(50)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a51" onclick="MainE(51)" onmouseover="tileText(51)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a52" onclick="MainE(52)" onmouseover="tileText(52)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a53" onclick="MainE(53)" onmouseover="tileText(53)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a54" onclick="MainE(54)" onmouseover="tileText(54)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a55" onclick="MainE(55)" onmouseover="tileText(55)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a56" onclick="MainE(56)" onmouseover="tileText(56)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a57" onclick="MainE(57)" onmouseover="tileText(57)" onmouseleave="NotileText()"></div>
+        <div class="point" id="a58" onclick="MainE(58)" onmouseover="tileText(58)" onmouseleave="NotileText()"><img id="dragonMapSprite" src="enemy/dragon.png"></div>
+
+        <div class="point" id="current" onclick="charInfo()" onmouseover="charInfoTile()" onmouseleave="noCharInfo()"><img class="MapSprite" src="knight/Knight_1/Normal.png"></div>
+
+        <div id="tileText"></div>
+        <div id="charInfoText"></div>
+
+        <img id="mapCinematic" src="backgrounds/infoOveray.png">
+        <div id="charInfo" onclick="document.getElementById('charInfo').style.display = 'none'; document.getElementById('mapCinematic').style.display = 'none' ">
+            <div class="tableInfo" id="tableCharName"></div>
+            <div class="tableInfo" id="tablePortrait" title="Very Handsome"></div>
+            <div class="tableInfo" id="tableAtk"></div>
+            <div class="tableInfo" id="tableDef"></div>
+            <div class="tableInfo" id="tableHpBar"></div>
+            <div class="tableInfo" id="tableCritDmgPic" title="Crit Damage"></div>
+            <div class="tableInfo" id="tableCritDmg"></div>
+            <div class="tableInfo" id="tableCritRatePic" title="Crit Chance"></div>
+            <div class="tableInfo" id="tableCritRate"></div>
+            <div class="tableInfo" id="tableSpeedPic" title="Speed"></div>
+            <div class="tableInfo" id="tableSpeed"></div>
+            <div class="tableInfo" id="tableDodgePic" title="Dodge Chance"></div>
+            <div class="tableInfo" id="tableDodge"></div>
+            <div class="tableInfo" id="tableSkillName"></div>
+            <div class="tableInfo" id="tableSkillText">[skill description]</div>
+            <div class="tableInfo" id="tableSkill1" onmouseover="SkillDesc(0)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
+            <div class="tableInfo" id="tableSkill2" onmouseover="SkillDesc(1)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
+            <div class="tableInfo" id="tableSkill3" onmouseover="SkillDesc(2)" onmouseleave="document.getElementById('tableSkillText').innerHTML = '[skill description]'; document.getElementById('tableSkillName').innerHTML = ''"></div>
+        </div>
+    </div>
+
+    <script src="map.js"></script>
+
+</body>
+</html>
