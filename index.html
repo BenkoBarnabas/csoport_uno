@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoD account</title>
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="accountscreen">
+        <img id="title" src="iod_title.png">
+        <img id="subtitle" src="iod_subtitle.png">
+        <h1 id="l"></h1>
+        <div id="loginscreen">
+            <h1>Log into your account</h1>
+            <input id="username" type="text" placeholder="Username" name="username"><br>
+            <input id="password" type="password" placeholder="Passsword" name="password"><br>
+            <button id="loginbutton" onclick="Game()">Log In</button>
+            <h2 onclick="signUpScreen()">I don't have an account</h2>
+        </div>
+        <div id="signupscreen">
+            <h1>Sign up</h1>
+            <form action="signup.php" method="post">
+                <input type="text" placeholder="Username" name="name"><br>
+                <input type="password" placeholder="Passsword" name="pwd"><br>
+                <input type="submit" onclick="signUpScreen()" value="Sign Up">
+            </form>
+            <h2 onclick="logInScreen()">← Back</h2>
+        </div>
+        <div id="startgamescreen">
+            <form action="settozero.php" method="post">
+                <input id="loggedinname" type="text" name="loggedinname" style="display:none">
+                <input type="submit" onclick="startGame()" value="New Game">
+            </form>
+            <form action="setactive.php" method="post">
+                <input id="loggedinname2" type="text" name="loggedinname2" style="display:none">
+                <input type="submit" onclick="startGame()" value="Load Game">
+            </form>
+            
+        </div>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+treasure: armor pieces/weapons/instant use potions
+villages: talk to villagers, meet love interest
+caves: find some food --> hp +/-
+magic mountain stream: ulti cost-- and speed++
+mountain air: strength++
+
+
+kell most: stats php segítségével map.js vátozóba adat posttal
+
+        console.log(Cname)
+        console.log(Cpassword)
+        console.log(pos)
+        console.log(MaxHp)
+        console.log(Hp)
+        console.log(Sgth)
+        console.log(Def)
+        console.log(CAtk)
+        console.log(Cd)
+        console.log(Cr)
+        console.log(Speed)
+        console.log(Dodge)
+        console.log(UltCost)
+        console.log(helmet)
+        console.log(chestplate)
+        console.log(leggings)
+        console.log(boots)
+        console.log(xp)
+        console.log(charm)
+        console.log(Energy)
+        console.log(active)
+
+    while($row = mysqli_fetch_all($results)) {
+        $accounts = $row;
+    }

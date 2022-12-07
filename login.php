@@ -6,10 +6,14 @@
 
     $kapcsolat = mysqli_connect($dbhost, $dbuser, $dbpwd, $dbname);
 
-    $query = "SELECT * FROM stats WHERE active = 1";
+    $query = "SELECT name, password FROM stats";
     $results = mysqli_query($kapcsolat, $query);
 
-    $accounts = mysqli_fetch_all($results, MYSQLI_ASSOC);
+    $accounts = "";
+
+    while($row = mysqli_fetch_all($results)) {
+        $accounts = $row;
+    }
     
     echo json_encode($accounts);
 ?>

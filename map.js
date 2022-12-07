@@ -7,7 +7,7 @@ let isPlaying = false
 //base stats
 let Cname
 let Cpassword
-let pos
+let pos = 0
 let MaxHp
 let Hp
 let Sgth //atk % szoró
@@ -22,41 +22,9 @@ let helmet
 let chestplate
 let leggings
 let boots
-let xp
 let charm
 let Energy
 let active
-
-$(() => {
-    data = {x: Math.round(Math.random()*10+1)}
-    $.post("/rpg/game/stats.php", data, (res) => {
-        adat = JSON.parse(res)
-
-        Cname = adat[0]
-        Cpassword = adat[1]
-        pos = adat[2]
-        MaxHp = adat[3]
-        Hp = adat[4]
-        Sgth = adat[5]
-        Def = adat[6]
-        CAtk = adat[7]
-        Cd = adat[8]
-        Cr  = adat[9]
-        Speed = adat[10]
-        Dodge = adat[11]
-        UltCost = adat[12]
-        helmet = adat[13]
-        chestplate = adat[14]
-        leggings = adat[15]
-        boots = adat[16]
-        xp = adat[17]
-        charm = adat[18]
-        Energy = adat[19]
-        active = adat[20]
-
-        console.log(adat)
-    })
-})
 
 const skill1Desc = {
     Name: "Sweeping Swipe",
@@ -561,12 +529,42 @@ function ShowMap(){
     document.getElementById("yes").style.display = "none"
     document.getElementById("no").style.display = "none"
 
+    $(() => {
+        data = {x: Math.round(Math.random()*10+1)}
+        $.post("/rpg/game/stats.php", data, (res) => {
+            adat = JSON.parse(res)
+            console.log(adat)
+
+            Cname = adat[0]
+            Cpassword = adat[1]
+            pos = adat[2]
+            MaxHp = adat[3]
+            Hp = adat[4]
+            Sgth = adat[5]
+            Def = adat[6]
+            CAtk = adat[2]
+            Cd = adat[8]
+            Cr = adat[9]
+            Speed = adat[10]
+            Dodge = adat[11]
+            UltCost = adat[12]
+            helmet = adat[13]
+            chestplate = adat[14]
+            leggings = adat[15]
+            boots = adat[16]
+            charm = adat[17]
+            Energy = adat[18]
+            active = adat[19]
+            console.log("atK:" + CAtk)
+        })
+    })    
+
     elerheto()
 }
-var Offset = function(element) {
+function Offset(element) {
     var top = 0, left = 0;
     do {
-        top += element.offsetTop  || 0;
+        top += element.offsetTop || 0;
         left += element.offsetLeft || 0;
         element = element.offsetParent;
     } while(element);
@@ -581,7 +579,7 @@ function elerheto() {
 
     console.log("elereheto")
     var curTop = (Offset(document.getElementById("a"+pos)).top + "px")
-    var curLeft = ((Offset(document.getElementById("a"+pos)).left -(window.innerWidth - 1000)/2 + "px"))
+    var curLeft = (Offset(document.getElementById("a"+pos)).left -(window.innerWidth - 1000)/2 + "px")
     console.log(curTop,curLeft)
     document.querySelectorAll(".point").forEach(image => {image.style.display = "none"})
     for (let i = 0; i < graph[pos].length; i++)
